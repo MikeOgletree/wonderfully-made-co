@@ -1,0 +1,213 @@
+---
+import Base from '../layouts/Base.astro';
+import {
+  signatureProducts,
+  comingSoon,
+  ingredients,
+  badges,
+  allergenNote,
+  formatPrice,
+} from '../data/products';
+
+const faqs = [
+  { q: 'What is in it?', a: 'Beeswax, shea butter, sweet almond oil, alkanet root and vitamin E. That is the whole list.' },
+  { q: 'Does it contain nuts?', a: 'Yes. It contains tree nuts (sweet almond and shea). Please check with your doctor if you have a nut allergy.' },
+  { q: 'How long does it last?', a: 'TODO: shelf life after stability testing.' },
+  { q: 'Do you ship, or can I pick up?', a: 'TODO: shipping and local pickup details.' },
+];
+---
+<Base>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="hero-label">Natural beauty · small batch</p>
+        <h1>Natural beauty,<br /><em>wonderfully</em> made.</h1>
+        <p class="hero-text">
+          Simple, honest beauty made from ingredients you can pronounce. It starts with our signature tinted lip balm,
+          handmade at our kitchen table by Mike, Nicole and the girls.
+        </p>
+        <div class="actions">
+          <a href="#shop" class="btn btn-primary">Order the signature balm</a>
+          <a href="#soon" class="btn btn-light">See what's coming</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-photo photo">Photo: signature balm on linen with dried flowers</div>
+        <div class="hero-badge">
+          <span class="big">5</span>
+          <span>natural ingredients.<br />Nothing else.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop" class="section shop">
+    <div class="wrap stack">
+      <div class="intro">
+        <p class="eyebrow accent">Available now</p>
+        <h2>Our signature tinted lip balm</h2>
+        <p class="lead">Where it all begins. One recipe, made well. Pick a single, a trio or a gift set.</p>
+      </div>
+      <div class="grid">
+        {signatureProducts.map((p) => (
+          <article class="card">
+            <div class="photo" style="height: 220px">{p.photo}</div>
+            <h3 class="card-title">{p.name}</h3>
+            <p class="lead">{p.blurb}</p>
+            <div class="card-foot">
+              <span class="price">{formatPrice(p.price)}</span>
+              <a href={`/shop/${p.slug}`} class="btn btn-primary">View</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="soon" class="section soon">
+    <div class="wrap stack">
+      <div class="intro">
+        <p class="eyebrow">Coming soon</p>
+        <h2>This is only the beginning.</h2>
+        <p class="lead rose">
+          We're growing a full line of natural beauty, one carefully made product at a time. Be the first to know when each one is ready.
+        </p>
+      </div>
+      <div class="grid soon-grid">
+        {comingSoon.map((s) => (
+          <article class="soon-card">
+            <div class="photo" style={`height: 170px; background: ${s.tint}`}>{s.photo}</div>
+            <span class="soon-tag">Coming soon</span>
+            <h3 class="card-title">{s.name}</h3>
+            <p class="lead rose">{s.blurb}</p>
+            <a href="#signup" class="btn btn-outline">Notify me</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="inside" class="section">
+    <div class="wrap stack">
+      <div class="intro">
+        <h2>What's inside our signature balm. All of it.</h2>
+        <p class="lead">Five ingredients you can pronounce. Nothing else.</p>
+      </div>
+      <div class="ing-grid">
+        {ingredients.map((i) => (
+          <div class="ing">
+            <span class="ing-name">{i.name}</span>
+            <span>{i.why}</span>
+          </div>
+        ))}
+      </div>
+      <div class="badges">{badges.map((b) => <span class="pill">{b}</span>)}</div>
+      <p class="lead">{allergenNote}</p>
+    </div>
+  </section>
+
+  <section id="story" class="section story">
+    <div class="wrap story-inner">
+      <div class="photo story-photo">Photo: family hands pouring balm at the kitchen table</div>
+      <div class="stack">
+        <h2>Made by our family, for yours.</h2>
+        <p class="lead big">
+          We're Mike and Nicole, and we started Wonderfully Made Co. with our four daughters. We wanted something simple and good to share with them, and with you.
+        </p>
+        <p class="lead big">Every batch is poured, capped and labeled by our family. As the girls grow, so will the line.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="giving" class="giving">
+    <div class="wrap giving-inner">
+      <h2>A share of every order gives back.</h2>
+      <p>Part of each sale supports a cause for girls. Our daughters choose where it goes. (TODO: cause and percentage.)</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap faq">
+      <h2>Questions</h2>
+      {faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p class="lead">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section id="signup" class="signup">
+    <form class="wrap signup-form" action="#" method="post">
+      <label for="email">Be first to try new flavors</label>
+      <div class="signup-row">
+        <input id="email" name="email" type="email" required placeholder="name@email.com" />
+        <button type="submit" class="btn btn-primary">Sign up</button>
+      </div>
+      <p class="fine">TODO: connect to an email list provider.</p>
+    </form>
+  </section>
+</Base>
+
+<style>
+  .stack { display: flex; flex-direction: column; gap: 32px; }
+  .intro { display: flex; flex-direction: column; gap: 8px; max-width: 640px; }
+  .accent { color: var(--accent); }
+
+  .hero { background: var(--sage); padding: 56px 0 80px; }
+  .hero-inner { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
+  .hero-copy { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .hero-label { margin: 0; align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: var(--rose); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose-ink); }
+  h1 { font-size: clamp(46px, 7vw, 72px); line-height: 1.02; color: var(--green-dark); }
+  h1 em { color: var(--accent); }
+  .hero-text { margin: 0; font-size: 18px; line-height: 1.6; color: var(--green-dark); max-width: 480px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+  .hero-art { flex: 1 1 340px; min-width: 0; position: relative; height: 480px; }
+  .hero-photo { position: absolute; inset: 0 56px 56px 0; border-radius: 28px; background: var(--rose); color: var(--rose-ink); }
+  .hero-badge { position: absolute; right: 0; bottom: 0; width: 200px; height: 200px; border-radius: 50%; background: var(--cream); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; padding: 20px; font-size: 14px; color: var(--green); }
+  .hero-badge .big { font-family: var(--serif); font-size: 32px; font-weight: 600; }
+
+  .shop { background: var(--cream-light); }
+  .card-title { font-size: 26px; font-weight: 600; }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
+  .price { font-size: 18px; font-weight: 600; }
+
+  .soon { background: var(--rose); }
+  .soon .eyebrow { color: var(--rose-ink); }
+  .soon h2 { color: #2E1A17; }
+  .rose { color: var(--rose-ink); }
+  .soon-grid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+  .soon-card { background: var(--rose-light); border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+  .soon-card .btn { margin-top: auto; min-height: 44px; }
+  .soon-tag { align-self: flex-start; padding: 4px 12px; border-radius: 999px; background: var(--green); color: var(--cream); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .ing-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .ing { background: var(--sage); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  .ing-name { font-family: var(--serif); font-size: 24px; font-weight: 600; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .story { background: var(--cream-light); }
+  .story-inner { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
+  .story-photo { flex: 1 1 340px; height: 380px; border-radius: 24px; background: var(--rose); color: var(--rose-ink); }
+  .story-inner .stack { flex: 1 1 420px; min-width: 0; gap: 16px; }
+  .big { font-size: 17px; line-height: 1.7; }
+
+  .giving { background: var(--green); color: var(--cream); padding: 64px 0; }
+  .giving-inner { max-width: 760px; text-align: center; display: flex; flex-direction: column; gap: 14px; }
+  .giving h2 { font-size: 40px; }
+  .giving p { margin: 0; font-size: 17px; line-height: 1.6; }
+
+  .faq { max-width: 760px; display: flex; flex-direction: column; gap: 4px; }
+  .faq h2 { margin-bottom: 12px; }
+  details { border-bottom: 1px solid #D9D1BF; padding: 16px 0; }
+  summary { cursor: pointer; font-size: 17px; font-weight: 500; }
+  details .lead { margin-top: 10px; }
+
+  .signup { background: var(--sage); padding: 56px 0; }
+  .signup-form { max-width: 640px; display: flex; flex-direction: column; gap: 12px; }
+  .signup-form label { font-family: var(--serif); font-size: 30px; font-weight: 600; text-align: center; }
+  .signup-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .signup-row input { flex: 1 1 260px; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--green); font: inherit; background: #fff; }
+  .fine { margin: 0; text-align: center; font-size: 13px; color: var(--green-dark); }
+</style>
