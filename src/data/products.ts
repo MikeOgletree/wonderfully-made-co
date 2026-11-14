@@ -50,7 +50,7 @@ export const signatureProducts: Product[] = [
 export const comingSoon: ComingSoon[] = [
   { name: 'Whipped body butter', blurb: 'Shea and cocoa butter whipped light for soft skin.', photo: 'Photo: glass jar of body butter', tint: '#B7C6A8' },
   { name: 'Sugar lip scrub', blurb: 'A gentle scrub to pair with the signature balm.', photo: 'Photo: small tin of lip scrub', tint: '#F4EEE2' },
-  { name: 'Gentle face oil', blurb: 'A simple plant oil blend for everyday glow.', photo: 'Photo: amber dropper bottle', tint: '#E8C9A0' },
+  { name: 'Nourishing face balm', blurb: 'A water-free balm of plant butters and oils for soft, glowing skin.', photo: 'Photo: small glass jar of face balm', tint: '#E8C9A0' },
   { name: 'Hand and cuticle balm', blurb: 'Rich balm for hands that do a lot.', photo: 'Photo: kraft tin of hand balm', tint: '#D6E0CC' },
 ];
 
