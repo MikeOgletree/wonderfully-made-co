@@ -23,8 +23,7 @@ const faqs = [
         <p class="hero-label">Natural beauty · small batch</p>
         <h1>Natural beauty,<br /><em>wonderfully</em> made.</h1>
         <p class="hero-text">
-          Simple, honest beauty made from ingredients you can pronounce. It starts with our signature tinted lip balm,
-          handmade at our kitchen table by Mike, Nicole and the girls.
+          Simple, honest beauty made from ingredients you can pronounce, beginning with our signature tinted lip balm.
         </p>
         <div class="actions">
           <a href="#shop" class="btn btn-primary">Order the signature balm</a>
@@ -106,15 +105,26 @@ const faqs = [
     </div>
   </section>
 
+  <section id="mission" class="mission">
+    <div class="wrap mission-inner">
+      <p class="eyebrow">Our mission</p>
+      <p class="mission-text">
+        Every woman and girl is one of God's beautiful creations. We make clean, natural beauty products without the ugly
+        messaging, because you are already fearfully and wonderfully made.
+      </p>
+    </div>
+  </section>
+
   <section id="story" class="section story">
     <div class="wrap story-inner">
-      <div class="photo story-photo">Photo: family hands pouring balm at the kitchen table</div>
+      <div class="photo story-photo">Photo: Mike, Nicole and their four daughters</div>
       <div class="stack">
         <h2>Made by our family, for yours.</h2>
         <p class="lead big">
-          We're Mike and Nicole, and we started Wonderfully Made Co. with our four daughters. We wanted something simple and good to share with them, and with you.
+          Wonderfully Made Co. was founded by Mike and Nicole and inspired by their four daughters. They wanted
+          beauty products they could trust, and a brand that tells every girl the truth about who she is.
         </p>
-        <p class="lead big">Every batch is poured, capped and labeled by our family. As the girls grow, so will the line.</p>
+        <p class="lead big">As our daughters grow, so will the line, one carefully made product at a time.</p>
       </div>
     </div>
   </section>
@@ -186,6 +196,11 @@ const faqs = [
   .ing { background: var(--sage); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
   .ing-name { font-family: var(--serif); font-size: 24px; font-weight: 600; }
   .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .mission { background: var(--cream); padding: 80px 0; }
+  .mission-inner { max-width: 860px; text-align: center; display: flex; flex-direction: column; gap: 18px; }
+  .mission .eyebrow { color: var(--accent); }
+  .mission-text { margin: 0; font-family: var(--serif); font-size: clamp(26px, 3.6vw, 36px); line-height: 1.35; color: var(--green-dark); }
 
   .story { background: var(--cream-light); }
   .story-inner { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
