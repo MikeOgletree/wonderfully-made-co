@@ -23,7 +23,7 @@ export const signatureProducts: Product[] = [
     name: 'The Balm',
     blurb: 'Our everyday natural tinted lip balm. Soft color from alkanet root.',
     description:
-      'Our signature balm: beeswax, shea butter and sweet almond oil, tinted with alkanet root and kept fresh with vitamin E. Poured, capped and labeled by our family.',
+      'Our signature balm: beeswax, shea butter and sweet almond oil, tinted with alkanet root and kept fresh with vitamin E. Made in small batches.',
     price: null,
     photo: 'Photo: single kraft tube',
   },
@@ -41,7 +41,7 @@ export const signatureProducts: Product[] = [
     name: 'The Gift Set',
     blurb: 'Two balms and a handwritten note in a kraft gift box.',
     description:
-      'Two signature balms and a handwritten note from our family, packed in a kraft gift box.',
+      'Two signature balms and a handwritten note card, packed in a kraft gift box.',
     price: null,
     photo: 'Photo: gift box with note card',
   },
