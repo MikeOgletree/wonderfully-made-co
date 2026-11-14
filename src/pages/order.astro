@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { signatureProducts, formatPrice } from '../data/products';
+---
+<Base title="Order | Wonderfully Made Co.">
+  <section class="wrap order">
+    <h1>Your order</h1>
+    <p class="lead">
+      Online checkout opens soon. For now, pick what you'd like and we'll confirm your holiday pre-order personally.
+    </p>
+
+    <!--
+      TODO(payments): this page is a placeholder. No payment, cart storage or
+      customer data is handled yet. When a provider is chosen, wire checkout
+      here and run the security review before going live.
+    -->
+    <ul class="items">
+      {signatureProducts.map((p) => (
+        <li>
+          <a href={`/shop/${p.slug}`}>{p.name}</a>
+          <span>{formatPrice(p.price)}</span>
+        </li>
+      ))}
+    </ul>
+
+    <a href="/" class="btn btn-outline">Back to home</a>
+  </section>
+</Base>
+
+<style>
+  .order { max-width: 720px; padding-top: 40px; padding-bottom: 80px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+  h1 { font-size: clamp(40px, 6vw, 56px); }
+  .items { list-style: none; padding: 0; margin: 0; width: 100%; }
+  .items li { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+</style>
